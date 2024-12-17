@@ -1,8 +1,8 @@
 /* General layout */
 .container {
-    text-align: center;
+    text-align: center ;
     margin-top: 20px;
-    color:white;
+    color: white;
 }
 
 .grid {
@@ -34,11 +34,11 @@
 
 /* Row and column selection styles */
 .selected-row {
-    background-color: #0000ff ;
+    background-color: #0000ff;  /* Blue for selected row */
 }
 
 .selected-column {
-    background-color: #008e5e ;
+    background-color: #008e5e ; /* Green for selected column */
 }
 
 /* Message display */
@@ -47,4 +47,98 @@
     font-size: 20px;
     color: blue;
     text-align: center;
+}
+
+/* Media Queries for responsiveness */
+
+/* For large tablets and smaller desktops */
+@media (max-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(12, 8vw);  /* Adjust grid columns to flexible sizes */
+        grid-gap: 8px;
+    }
+
+    .box {
+        height: 0;
+        padding-top: 8vw;  /* Adjust aspect ratio */
+    }
+
+    #message {
+        font-size: 14px;
+        position: absolute;  /* Ensure the text is positioned relative to the viewport */
+        bottom: 10px;        /* Position the text near the bottom */
+        left: 50%;           /* Center horizontally */
+        transform: translateX(-50%);  /* Center horizontally using transform */
+        width: 100%;         /* Ensure the text takes full width on mobile */
+        text-align: center;  /* Center the text inside the container */
+    }
+}
+
+/* For medium-sized tablets and smaller screens */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(12, 10vw);  /* Adjust grid columns to flexible sizes */
+        grid-gap: 8px;
+    }
+
+    .box {
+        height: 0;
+        padding-top: 10vw;  /* Adjust aspect ratio */
+    }
+
+    #message {
+        font-size: 14px;
+        position: absolute;  /* Ensure the text is positioned relative to the viewport */
+        bottom: 10px;        /* Position the text near the bottom */
+        left: 50%;           /* Center horizontally */
+        transform: translateX(-50%);  /* Center horizontally using transform */
+        width: 100%;         /* Ensure the text takes full width on mobile */
+        text-align: center;  /* Center the text inside the container */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(12, 12vw);  /* Adjust grid columns to flexible sizes for mobile */
+        grid-gap: 4px;
+    }
+
+    .box {
+        height: 0;
+        padding-top: 12vw;  /* Adjust aspect ratio */
+    }
+
+    #message {
+        font-size: 14px;
+        position: absolute;  /* Ensure the text is positioned relative to the viewport */
+        bottom: 10px;        /* Position the text near the bottom */
+        left: 50%;           /* Center horizontally */
+        transform: translateX(-50%);  /* Center horizontally using transform */
+        width: 100%;         /* Ensure the text takes full width on mobile */
+        text-align: center;  /* Center the text inside the container */
+    }
+}
+
+/* For very small mobile screens */
+@media (max-width: 400px) {
+    .grid {
+        grid-template-columns: repeat(12, 14vw);  /* Adjust to 12 columns with more width */
+        grid-gap: 4px;
+    }
+
+    .box {
+        height: 0;
+        padding-top: 14vw;  /* Adjust aspect ratio */
+    }
+
+    #message {
+        font-size: 14px;
+        position: absolute;  /* Ensure the text is positioned relative to the viewport */
+        bottom: 10px;        /* Position the text near the bottom */
+        left: 50%;           /* Center horizontally */
+        transform: translateX(-50%);  /* Center horizontally using transform */
+        width: 100%;         /* Ensure the text takes full width on mobile */
+        text-align: center;  /* Center the text inside the container */
+    }
 }

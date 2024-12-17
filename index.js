@@ -7,8 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const boxId = box.id;
             const boxNumber = parseInt(boxId.replace('div', ''));
 
-            const rowIndex = Math.floor((boxNumber - 1) / 12);  // Row index (0-3)
-            const colIndex = (boxNumber - 1) % 12;              // Column index (0-11)
+            // Assume 12 columns for consistent row/column indexing
+            const columns = 12;
+
+            // Calculate row and column indices based on a 12-column grid
+            const rowIndex = Math.floor((boxNumber - 1) / columns);  // Row index (dynamic based on column count)
+            const colIndex = (boxNumber - 1) % columns;              // Column index (dynamic based on column count)
 
             // Reset previous selections
             boxes.forEach(b => {
@@ -20,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Select clicked box
             box.classList.add('selected');
 
-            // Change row's divs (background-color)
-            for (let i = rowIndex * 12; i < (rowIndex + 1) * 12; i++) {
+            // Change row's divs background-color
+            for (let i = rowIndex * columns; i < (rowIndex + 1) * columns; i++) {
                 boxes[i].classList.add('selected-row');
             }
 
-            // Change column's divs (background-color)
-            for (let i = colIndex; i < 48; i += 12) {
+            // Change column's divs background-color
+            for (let i = colIndex; i < 48; i += columns) {
                 boxes[i].classList.add('selected-column');
             }
 
